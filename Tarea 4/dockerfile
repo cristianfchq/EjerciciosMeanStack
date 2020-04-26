@@ -1,0 +1,46 @@
+FROM mongo AS mongomod
+RUN mkdir /myvol
+RUN echo "hello world" > /myvol/greeting
+VOLUME /sharedData
+
+# para ejecutar
+# docker build -t <nombreNuevaImagen>:latest .
+
+# docker image ls
+# para crear contenedor con esta imagen creada
+# docker run --name=<nombreNuevoContenedor> -d <nombreNuevaImagen>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#######################################################
+
+
+# utilizar la imagen mongo si la tenemos en local y si no descargarla y usarla
+#FROM mongo
+# ejecutar el comando "mkdir /sharedDAta" cuando se cree el contenedor basado en esta 
+# imagen
+#RUN mkdir /sharedData
+#RUN echo "hello world" > /sharedData/greeting
+# seleccionamos por defecto una carpeta que se compartira en el volumen que creamos
+#VOLUME /sharedData
+# define el directorio en el que trabajaremos desde el contenedor
+#WORKDIR /sharedData

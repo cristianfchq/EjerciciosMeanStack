@@ -1,0 +1,58 @@
+# visitar https://docs.docker.com/compose/
+
+# version de docker compose que utilizaremos para compilar este archivo
+version: '3.7'
+# servicios=contenedores que crearemos con docker compose
+services:
+  # primer servicio=contenedor
+  mongo:
+    # nombre del contenedor
+    container_name: tscNodejs
+    # imagen que usaremos
+    image: newimagemongo
+    # reinicia el contenedor si algo sale mal
+    restart: always
+    # volumenes a compartir
+    volumes:
+      - /filesFromTypeScript:/sharedData
+      # ~/dataFromMongo:/sharedData en linux
+      # utiliza el volumen declarado como "mongodatabases" en la seccion de volumes
+      # y guarda todos los datos generados en la ruta "/data/db"
+      #- mongodatabases:/datasDB/db
+    # habilitar la autenticacion de mongo
+    command: [--auth]
+    # puertos
+    ports:  
+      - 22140:22140
+    # variables de entorno
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+# volumenes declarados para su uso
+# volumes:
+#     # primer volumen 
+#     mongodatabases:
+#       # nombre del volumen
+#       name: mongodatabases
+
+
+# para instalar node y tsc en el contenedor
+
+# https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/
+
+# curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+
+# o
+
+# curl -sL https://deb.nodesource.com/setup_10.x | bash
+
+# sudo apt install nodejs
+
+# npm install -g typescript
+
+# si no funciona curl
+
+# https://linuxize.com/post/curl-command-examples/
+
+# sudo apt update
+# sudo apt install curl

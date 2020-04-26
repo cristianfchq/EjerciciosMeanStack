@@ -1,0 +1,36 @@
+# visitar https://docs.docker.com/compose/
+
+# version de docker compose que utilizaremos para compilar este archivo
+version: '3.7'
+# servicios=contenedores que crearemos con docker compose
+services:
+  # primer servicio=contenedor
+  mongo:
+    # nombre del contenedor
+    container_name: mongo
+    # imagen que usaremos
+    image: newimagemongo
+    # reinicia el contenedor si algo sale mal
+    restart: always
+    # volumenes a compartir
+    volumes:
+      - /dataFromMongo:/sharedData
+      # ~/dataFromMongo:/sharedData en linux
+      # utiliza el volumen declarado como "mongodatabases" en la seccion de volumes
+      # y guarda todos los datos generados en la ruta "/data/db"
+      - mongodatabases:/datasDB/db
+    # habilitar la autenticacion de mongo
+    command: [--auth]
+    # puertos
+    ports:  
+      - 27017:27017
+    # variables de entorno
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+# volumenes declarados para su uso
+volumes:
+    # primer volumen 
+    mongodatabases:
+      # nombre del volumen
+      name: mongodatabases

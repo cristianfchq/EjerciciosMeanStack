@@ -1,0 +1,53 @@
+</h1>
+
+
+pasos tareas tres
+
+1.una vez instalado docker ir a la pagina de docker (https://www.docker.com/) y buscar una imagen en este caso utilizaremos la imagen de mongo y para esto debemos descargarla 
+
+$ docker pull mongo
+
+y podemos listar ($ docker ps -a) los contendores y ver q no tenemos ni uno instanciado
+
+2.instanciamos un nuevo contenedor
+
+$ docker run --name <nombreContenedor> -d <nombreImagenDescargada>:tag
+
+$ docker run --name nuevoContenedor -d mongo (si no colocamos el tag se instanciara un contenedor con la ultima version de mongo)
+
+3.ahora podemos listar los contenedores que tengamos
+
+$ docker ps -a
+
+Apartado 
+
+$ docker stop <nombreImagen o idContenedor>
+$ docker rm <nombreImagen o idContenedor>
+$ docker start <nombreImagen o idContenedor>
+
+4.ingresar a la shell del contenedor
+
+para ingresar a la shell del contenedor, el contenedor se debe ejecutar es decir se debe levantar el contenedor en caso de que este detenido se debe ejecutar $ docker start <nombreImagen o idContenedor>
+
+$ docker exec -it <nombreImagen o idContenedor> bash
+
+ahora se vera que estamos en la terminal de linux de nuestro contenedor
+
+5. ahora ingresamos a mongo
+
+# mongo
+
+y aqui podemos difrutar de nuestro mongo
+
+
+
+
+</h1>
+</h1>
+
+
+
+
+
+
+
