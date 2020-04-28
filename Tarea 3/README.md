@@ -240,7 +240,7 @@ Primeramente abriremos Robo 3T.
   <img src="userrobo3t/5.png" title="Version de Docker">
 </p>
 
-Primeramente en la pestaña **`Connection`**.
+Luego en la pestaña **`Connection`**.
 
 - Crearemos nueva conección haciendo click en **`"create"`**.
 - Colocaremos un nombre a nuestra conección **`"Name: miContenedor2"`**.
