@@ -132,16 +132,13 @@ Y se puede ver que podemos crear bases de datos e insertar documentos.
   <img src="descargarIMGcrearConten/10.png" title="Version de Docker">
 </p>
 
-<br>
-<br>
-
 - ### Docker-compose y conectar con Robo 3T ###
 
 Compose es una herramienta para definir y ejecutar aplicaciones Docker de contenedores múltiples. Con Compose, utiliza un archivo YAML para configurar los servicios de su aplicación. Luego, con un solo comando, crea e inicia todos los servicios desde su configuración.
 
 [Docker-compose](https://docs.docker.com/compose/)
 
-archivo utilizado para crear un contenedor con docker-compose con el nombre `dockercompose.yml`:
+Archivo utilizado para crear un contenedor con docker-compose con el nombre `dockercompose.yml`:
 
 >```ruby
 ># version de docker compose que utilizaremos para compilar este archivo
