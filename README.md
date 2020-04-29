@@ -25,6 +25,9 @@ Imagenes y contenedores utilizando dockerfile, tambien creacion de un volumen pa
 
 Creacion de una base de datos en mongodb en el contenedor creado, tambien creacion de usuarios y posteriormente la creacion de la base de datos en mongodb Atlas (para esta parte nos ayudaremos con robo 3T conectando a mongodb Atlas).<a href="https://github.com/cristianfchq/EjerciciosMeanStack/tree/master/Tarea%205"> ver Tarea 5 :</a>
 
+### 📝 <a href="https://github.com/cristianfchq/EjerciciosMeanStack/tree/master/Tarea%206">Tarea 6 :</a>
+
+Averiguar todo lo que puedan sobre: Protocolos HTTP, cual es la diferencia entre un URI y un URL y cuales son los mensajes de respuesta HTTP.<a href="https://github.com/cristianfchq/EjerciciosMeanStack/tree/master/Tarea%206"> ver Tarea 6 :</a>
 
 
 

@@ -288,3 +288,51 @@ Para ingresar a mongo desde la terminal o desde Robo 3T, no olvidar que el `user
 >```ruby
 >$ mongo -u root -p root
 >```
+
+- ### Instalar node y typeScript en contenedor `tscNodejs`.
+
+Ahora instalaremos TypeScript y node en el contenedor `tscNodejs`.
+
+#### Habilite el repositorio NodeSource ejecutando el siguiente curl como usuario con privilegios de sudo:
+
+>```ruby
+>$ curl -sL https://deb.nodesource.com/setup_10.x | bash
+>```
+
+#### El comando agregará la clave de firma NodeSource a su sistema, creará un archivo de repositorio de fuentes apt, instalará todos los paquetes necesarios y actualizará la memoria caché apt.
+
+
+
+>```ruby
+>$ sudo apt install nodejs
+>```
+
+>```ruby
+>$ npm install -g typescript
+>```
+
+#### Si no funciona curl
+
+>```ruby
+>$ sudo apt update
+>$ sudo apt install curl
+>```
+
+Viendo las versiones que se instaló en el contenedor `tscNodejs`.
+
+>```ruby
+>$ node --version
+>$ tsc -v
+>```
+
+<p align="center">
+  <img src="dockerfilevolumen/img1.png" title="Version de Docker">
+</p>
+
+<p align="center">
+  <img src="dockerfilevolumen/img2.png" title="Version de Docker">
+</p>
+
+<p align="center">
+  <img src="dockerfilevolumen/img3.png" title="Version de Docker">
+</p>
