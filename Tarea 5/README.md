@@ -8,30 +8,30 @@ Visita la pagina oficial de [Mongo](https://www.mongodb.com/)
 
 #### En este caso crearemos un modelo de base de datos para un Consultorio Odontológico.
 
-## El modelo de Base de Datos es el siguiente:
+## El modelo de Base de Datos es el siguiente (Consultorio Dental): 
 
 <p align="center">
   <img src="diagrama/modelo.png" title="Version de Docker">
 </p>
 
-## Analisis de requerimientos del consultorio.
+## Lista de requerimientos del consultorio.
 
->#### **$1.$**  _Agregar un nuevo tratamiento._
->#### **$2.$**  _Registrar un nuevo paciente._
->#### **$3.$**  _Abrir historial de un nuevo paciente._
->#### **$4.$**  _Registrar imagenes antes del inicio del tratamiento (para ver el estado de sus dientes antes del tratamiento)._
->#### **$5.$**  _Se tiene que poder añadir mas imagenes del estado de los dientes del paceinte en el proceso del tratamiento._
->#### **$6.$**  _Registrar imagenes al finalizar el tratamiento._
->#### **$7.$**  _Actualizar el saldo de los pacientes, su deuda pendiente con el consultorio._
->#### **$8.$**  _Ver los pacientes ya pagaron todo._
->#### **$9.$**  _Ver los paceintes que deben arriba de 2000 Bs._ 
->#### **$10.$** _Ver el historial de visitas de un paciente._
->#### **$11.$** _Buscar paciente por ci._
->#### **$12.$** _Ver los pacientes que estan en un determinado tratamiento._
+>#### **1.**  _Agregar un nuevo tratamiento._
+>#### **2.**  _Registrar un nuevo paciente._
+>#### **3.**  _Abrir historial de un nuevo paciente._
+>#### **4.**  _Registrar imagenes antes del inicio del tratamiento (para ver el estado de sus dientes antes del tratamiento)._
+>#### **5.**  _Se tiene que poder añadir mas imagenes del estado de los dientes del paceinte en el proceso del tratamiento._
+>#### **6.**  _Registrar imagenes al finalizar el tratamiento._
+>#### **7.**  _Actualizar el saldo de los pacientes, su deuda pendiente con el consultorio._
+>#### **8.**  _Ver los pacientes ya pagaron todo._
+>#### **9.**  _Ver los paceintes que deben arriba de 2000 Bs._ 
+>#### **10.** _Ver el historial de visitas de un paciente._
+>#### **11.** _Buscar paciente por ci._
+>#### **12.** _Ver los pacientes que estan en un determinado tratamiento._
 
-#### Los datos a registrar en la Base de Datos `consultorio` son las siguientes:
+### Los datos a registrar en la Base de Datos `consultorio` son las siguientes:
 
-- #### $Colección~~~tratamientos:$ ####
+- ### Colección tratamientos: ###
 
 >```javascript
 >db = connect("localhost:27017/admin");
@@ -40,60 +40,20 @@ Visita la pagina oficial de [Mongo](https://www.mongodb.com/)
 >
 >
 >db.tratamientos.insert([
->    {
->        codTratamiento: "T0001",
->        nombreTratamiento: "Operatorial Dental",
->        caracteristicas: "Modi quia similique non eum nulla nisi. Expedita excepturi totam corporis recusandae praesentium nemo fugiat. Eum laborum officiis fugit corporis inventore praesentium voluptas blanditiis possimus. Voluptatem id reiciendis aut."
->    },
->    {
->        codTratamiento: "T0002",
->        nombreTratamiento: "Cirugia Bucal",
->        caracteristicas: "Alias molestiae quo ipsa soluta doloribus alias corporis. Distinctio eum voluptas et quia nihil quo. Ipsa voluptate beatae minima fuga voluptate eligendi."
->    },
->    {
->        codTratamiento: "T0003",
->        nombreTratamiento: "Periodoncia",
->        caracteristicas: "Explicabo eum tempora quis corrupti nesciunt. Quod quia blanditiis at. Consequatur ea blanditiis eligendi reprehenderit occaecati minima dolore. Cumque quis autem quae. Fugiat neque asperiores ab aspernatur."
->    },
->    {
->        codTratamiento: "T0004",
->        nombreTratamiento: "Ortodoncia",
->        caracteristicas: "Recusandae animi perferendis et ut et laboriosam. Quaerat ipsum culpa officia in accusamus molestias. Adipisci in soluta accusantium voluptatem repellat hic numquam."
->    },
->    {
->        codTratamiento: "T0005",
->        nombreTratamiento: "Odontopediatria",
->        caracteristicas: "Neque necessitatibus fugit velit et aut porro placeat voluptatibus. Sed a et sapiente numquam doloremque dolor. Voluptatem quaerat consequatur atque. Itaque vel et ea quo voluptates. Ullam voluptates dolorem."
->    },
->    {
->        codTratamiento: "T0006",
->        nombreTratamiento: "Patologia Bucal",
->        caracteristicas: "Incidunt corrupti nihil assumenda eligendi sit aut accusantium ipsa. Deleniti qui sed doloribus pariatur vitae ipsam voluptatibus. Rerum ut qui. Corporis voluptas non sint. Dolor soluta deleniti ut eligendi nihil doloribus. Laboriosam recusandae harum labore cumque unde adipisci suscipit."
->    },
->    {
->        codTratamiento: "T0007",
->        nombreTratamiento: "Protesis Fija",
->        caracteristicas: "Repudiandae placeat fugit earum incidunt. Dolores nobis exercitationem sit dolorem provident. Perspiciatis libero minus voluptatum reprehenderit rerum et provident odio voluptatem. Possimus est nihil quasi eos similique a eaque. Laudantium error est quidem doloribus."
->    },
->    {
->        codTratamiento: "T0008",
->        nombreTratamiento: "Protesis Removible",
->        caracteristicas: "Occaecati non temporibus quae at illo. Optio nostrum quia atque. Labore fugit officiis quibusdam architecto beatae omnis. Non et cupiditate sunt nesciunt."
->    },
->    {
->        codTratamiento: "T0009",
->        nombreTratamiento: "Integral Adultos",
->        caracteristicas: "Et porro voluptate dolorem quos itaque. Sint et quia consectetur aliquid doloribus. Sed voluptates id. Voluptas minima beatae odit eius maiores neque reiciendis officiis optio."
->    },
->    {
->        codTratamiento: "T0010",
->        nombreTratamiento: "Integral Niños",
->        caracteristicas: "Deleniti enim neque facere. Id id repudiandae laborum itaque. Et vel laudantium dignissimos et nihil. Eum tempore aut quaerat placeat ut laboriosam."
->    }
+>    { codTratamiento: "T0001", nombreTratamiento: "Operatorial Dental", caracteristicas: "Modi quia similique non eum nulla nisi. Expedita excepturi totam corporis recusandae praesentium nemo fugiat. Eum laborum officiis fugit corporis inventore praesentium voluptas blanditiis possimus. Voluptatem id reiciendis aut." },
+>    { codTratamiento: "T0002", nombreTratamiento: "Cirugia Bucal", caracteristicas: "Alias molestiae quo ipsa soluta doloribus alias corporis. Distinctio eum voluptas et quia nihil quo. Ipsa voluptate beatae minima fuga voluptate eligendi." },
+>    { codTratamiento: "T0003", nombreTratamiento: "Periodoncia",caracteristicas: "Explicabo eum tempora quis corrupti nesciunt. Quod quia blanditiis at. Consequatur ea blanditiis eligendi reprehenderit occaecati minima dolore. Cumque quis autem quae. Fugiat neque asperiores ab aspernatur." },
+>    { codTratamiento: "T0004", nombreTratamiento: "Ortodoncia", caracteristicas: "Recusandae animi perferendis et ut et laboriosam. Quaerat ipsum culpa officia in accusamus molestias. Adipisci in soluta accusantium voluptatem repellat hic numquam." },
+>    { codTratamiento: "T0005", nombreTratamiento: "Odontopediatria", caracteristicas: "Neque necessitatibus fugit velit et aut porro placeat voluptatibus. Sed a et sapiente numquam doloremque dolor. Voluptatem quaerat consequatur atque. Itaque vel et ea quo voluptates. Ullam voluptates dolorem." },
+>    { codTratamiento: "T0006", nombreTratamiento: "Patologia Bucal", caracteristicas: "Incidunt corrupti nihil assumenda eligendi sit aut accusantium ipsa. Deleniti qui sed doloribus pariatur vitae ipsam voluptatibus. Rerum ut qui. Corporis voluptas non sint. Dolor soluta deleniti ut eligendi nihil doloribus. Laboriosam recusandae harum labore cumque unde adipisci suscipit." },
+>    { codTratamiento: "T0007", nombreTratamiento: "Protesis Fija", caracteristicas: "Repudiandae placeat fugit earum incidunt. Dolores nobis exercitationem sit dolorem provident. Perspiciatis libero minus voluptatum reprehenderit rerum et provident odio voluptatem. Possimus est nihil quasi eos similique a eaque. Laudantium error est quidem doloribus." },
+>    { codTratamiento: "T0008", nombreTratamiento: "Protesis Removible", caracteristicas: "Occaecati non temporibus quae at illo. Optio nostrum quia atque. Labore fugit officiis quibusdam architecto beatae omnis. Non et cupiditate sunt nesciunt." },
+>    { codTratamiento: "T0009", nombreTratamiento: "Integral Adultos", caracteristicas: "Et porro voluptate dolorem quos itaque. Sint et quia consectetur aliquid doloribus. Sed voluptates id. Voluptas minima beatae odit eius maiores neque reiciendis officiis optio." },
+>    { codTratamiento: "T0010", nombreTratamiento: "Integral Niños", caracteristicas: "Deleniti enim neque facere. Id id repudiandae laborum itaque. Et vel laudantium dignissimos et nihil. Eum tempore aut quaerat placeat ut laboriosam." }
 >])
 >```
 
-- #### $Colección~~~pacientes:$ ####
+- ### Colección pacientes: ###
 
 >```javascript
 >db = connect("localhost:27017/admin");
@@ -295,7 +255,7 @@ Visita la pagina oficial de [Mongo](https://www.mongodb.com/)
 >])
 >```
 
-- #### $Colección~~~consulta:$ ####
+- ### Colección consulta: ####
 
 >```javascript
 >db = connect("localhost:27017/admin");
@@ -585,7 +545,7 @@ Visita la pagina oficial de [Mongo](https://www.mongodb.com/)
 
 ## Consultas que se requieren desde analisis de requerimientos.
 
-#### **$1.$**  _Agregar un nuevo tratamiento._
+#### **1.**  _Agregar un nuevo tratamiento._
 
 >```javascript
 >//? adicionar un nuevo tratamiento
@@ -606,7 +566,7 @@ Visita la pagina oficial de [Mongo](https://www.mongodb.com/)
 >)
 >```
 
-#### **$2.$**  _Registrar un nuevo paciente._
+#### **2.**  _Registrar un nuevo paciente._
 
 >```javascript
 >//? insertar nuevo paciente
@@ -634,7 +594,7 @@ Visita la pagina oficial de [Mongo](https://www.mongodb.com/)
 >)
 >```
 
-#### **$3.$**  _Abrir historial de un nuevo paciente._
+#### **3.**  _Abrir historial de un nuevo paciente._
 
 >```javascript
 >//? abrir su historial del nuevo paciente
@@ -666,7 +626,7 @@ Visita la pagina oficial de [Mongo](https://www.mongodb.com/)
 >)
 >```
 
-#### **$4.$**  _Registrar imagenes antes del inicio del tratamiento (para ver el estado de sus dientes antes del tratamiento)._
+#### **4.**  _Registrar imagenes antes del inicio del tratamiento (para ver el estado de sus dientes antes del tratamiento)._
 
 >```javascript
 >//? insertar imagenes antes del inicio del tratamiento
@@ -682,7 +642,7 @@ Visita la pagina oficial de [Mongo](https://www.mongodb.com/)
 >)
 >```
 
-#### **$5.$**  _Se tiene que poder añadir mas imagenes del estado de los dientes del paciente en el proceso del tratamiento._
+#### **5.**  _Se tiene que poder añadir mas imagenes del estado de los dientes del paciente en el proceso del tratamiento._
 
 >```javascript
 >//? añadir mas imagenes del estado de los dientes del paceinte paciente
@@ -709,7 +669,7 @@ Visita la pagina oficial de [Mongo](https://www.mongodb.com/)
 >)
 >```
 
-#### **$6.$**  _Registrar imagenes al finalizar el tratamiento._
+#### **6.**  _Registrar imagenes al finalizar el tratamiento._
 
 >```javascript
 >//? insertar imagenes al finalizar el tratamiento
@@ -750,7 +710,7 @@ Visita la pagina oficial de [Mongo](https://www.mongodb.com/)
 >
 >```
 
-#### **$7.$**  _Actualizar el saldo de los pacientes, su deuda pendiente con el consultorio._
+#### **7.**  _Actualizar el saldo de los pacientes, su deuda pendiente con el consultorio._
 
 >```javascript
 >//? actualizar el saldo de los pacientes su deuda pendiente
@@ -823,7 +783,7 @@ Visita la pagina oficial de [Mongo](https://www.mongodb.com/)
 >
 >```
 
-#### **$8.$**  _Ver los pacientes ya pagaron todo._
+#### **8.**  _Ver los pacientes ya pagaron todo._
 
 >```javascript
 >//? ver que paccientes ya pagaron todo
@@ -843,7 +803,7 @@ Visita la pagina oficial de [Mongo](https://www.mongodb.com/)
 >
 >```
 
-#### **$9.$**  _Ver los paceintes que deben arriba de 2000 Bs._
+#### **9.**  _Ver los paceintes que deben arriba de 2000 Bs._
 
 >```javascript
 >//?  ver los paceintes que deben arriba de 2000 Bs  
@@ -862,7 +822,7 @@ Visita la pagina oficial de [Mongo](https://www.mongodb.com/)
 >])
 >```
 
-#### **$10.$** _Ver el historial de visitas de un paciente._
+#### **10.** _Ver el historial de visitas de un paciente._
 
 >```javascript
 >//? ver el hostorial de visitas de una paciente 
@@ -899,7 +859,7 @@ Visita la pagina oficial de [Mongo](https://www.mongodb.com/)
 >
 >```
 
-#### **$11.$** _Buscar paciente por ci._
+#### **11.** _Buscar paciente por ci._
 
 >```javascript
 >//? buscar paciente por ci
@@ -908,7 +868,7 @@ Visita la pagina oficial de [Mongo](https://www.mongodb.com/)
 >
 >```
 
-#### **$12.$** _Ver los pacientes que estan en un determinado tratamiento._
+#### **12.** _Ver los pacientes que estan en un determinado tratamiento._
 
 >```javascript
 >//? ver los pacientes que estan en un determinado tratamiento

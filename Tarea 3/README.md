@@ -6,7 +6,7 @@ Docker es un programa de código abierto que permite que una aplicación Linux y
 
 Visita la pagina oficial de [Docker](https://www.docker.com/)
 
-- ### _Descargando una imagen de mongo, creando un contenedor e ingresando al contenedor_ ###
+- ### _Descargando una imagen de mongo. Creando un contenedor e ingresando al mismo_ ###
 
 Viendo la versión de Docker
 
@@ -62,7 +62,7 @@ Se puede crear un contenedor con el siguiente comando donde el nombre del conten
   <img src="descargarIMGcrearConten/5.png" title="Version de Docker">
 </p>
 
-Se puede listar todos los contenedores que creamos, en este caso al listar solo nos mostraría nuestro contenedor creado **_miContendor_**.
+Se puede listar todos los contenedores que creamos, en este caso al listar nos mostrará nuestro contenedor creado **_miContendor_**.
 
 >```ruby
 >$ docker ps -a
@@ -72,7 +72,7 @@ Se puede listar todos los contenedores que creamos, en este caso al listar solo 
   <img src="descargarIMGcrearConten/6.png" title="Version de Docker">
 </p>
 
-Una vez creado el contenedor se puede iniciar el contenedor detener el contenedor y eliminar el contendor.
+Una vez creado el contenedor se puede iniciar el contenedor detener el contenedor y eliminar el contenedor.
 
 >```ruby
 ># Se detiene el contenedor con:
@@ -107,7 +107,7 @@ Una vez creado un contenedor podemos ingresar al contenedor con:
 ># Donde fe4 es el CONTAINER ID del contenedor creado con nombre "miContenedor"
 >```
 
-***Ojo:*** Para Ingresar a un contenedor, el contenedor tiene que estar corriendo y si no esta corriendo debemos colocar el siguiente comando `docker start <nombreContenedor>` 
+***Ojo:*** Para Ingresar a un contenedor, el mismo tiene que estar corriendo y si no esta corriendo debemos colocar el siguiente comando `docker start <nombreContenedor>` 
 
 Una vez ingresado al contendor se puede notar que es una terminal de Linux, donde se puede colocar comandos de linux, en nuestro caso colocamos el comando `ls -l`.
 
@@ -116,7 +116,7 @@ Una vez ingresado al contendor se puede notar que es una terminal de Linux, dond
   <img src="descargarIMGcrearConten/8.png" title="Version de Docker">
 </p>
 
-Como descargamos una imagen mongo, podremos ver que si ejecutamos el comando `mongo` en la terminal del contenedor, entrara a la terminal de mongo instalado en el contenedor.
+Como descargamos una imagen mongo, podremos ver que si ejecutamos el comando `mongo` en la terminal del contenedor, entrara a la terminal de mongo instalado en el mismo.
 
 >```ruby
 >$ mongo        # esto en la terminal del contenedor
@@ -188,10 +188,10 @@ Luego de esto si listamos los contenedores con:
 >$ docker ps -a
 >```
 
-Y veremos que ya tenemos dos contenedores creados y tambien se puede ver que **_miContenedor2_** ya se esta ejecutando y nos muestra el numero de puerto que esta ocupando este contenedor creado que es el **27017**.
+Y veremos que ya tenemos dos contenedores creados y tambien se puede ver que **_miContenedor2_** ya se esta ejecutando y nos muestra el numero de puerto que esta ocupando que es el **27017**.
 
 **OJO :** 
-Posteriormente ingresaremos al contenedor y algo importante es que si dos contenedores ocupan el mismo puerto, entonces para no tener problemas posteriores es bueno detener los demas contenedores que no utilizaremos, solo se debe tener ejecutando el contenedor que se utilizara.
+Posteriormente ingresaremos al contenedor y algo importante es que si dos contenedores ocupan el mismo puerto, entonces para no tener problemas posteriores es bueno detener los demas contenedores que no utilizaremos, solo se debe tener ejecutando el contenedor que se utilizará.
 
 <p align="center">
   <img src="userrobo3t/2.png" title="Version de Docker">

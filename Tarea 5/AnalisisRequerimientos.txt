@@ -1,0 +1,12 @@
+$1.$ Agregar un nuevo tratamiento.
+$2.$ Registrar un nuevo paciente.
+$3.$ Abrir historial de un nuevo paciente.
+$4.$ Registrar imagenes antes del inicio del tratamiento (para ver el estado de sus dientes antes del tratamiento).
+$5.$ Se tiene que poder añadir mas imagenes del estado de los dientes del paceinte en el proceso del tratamiento.
+$6.$ Registrar imagenes al finalizar el tratamiento.
+$7.$ Actualizar el saldo de los pacientes, su deuda pendiente con el consultorio.
+$8.$ Ver los pacientes ya pagaron todo.
+$9.$ Ver los paceintes que deben arriba de 2000 Bs.
+$10.$ Ver el historial de visitas de un paciente.
+$11.$ Buscar paciente por ci.
+$12.$ Ver los pacientes que estan en un determinado tratamiento.

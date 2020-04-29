@@ -74,7 +74,7 @@ Y podemos listar los contenedores con:
   <img src="dockerfilevolumen/3.png" title="Version de Docker">
 </p>
 
-Ahora ingresaremos al contenedor `contenedorP` creado.
+Ahora ingresaremos al contenedor creado con nombre `contenedorP`.
 
 >```ruby
 >$ docker exec -it 314 bash  # Donde 314 es el ID CONTAINER del contenedor
@@ -226,7 +226,7 @@ Luego de esto si listamos los contenedores con:
 >$ docker ps -a
 >```
 
-Y veremos que ya tenemos creado el contenedor `mongo` y tambien se puede ver que el contenedor `mongo` ya se esta ejecutando y nos muestra el numero de puerto que esta ocupando este contenedor creado que es el **27017**.
+Y veremos que ya tenemos creado el contenedor `mongo` y tambien se puede ver que el contenedor `mongo` ya se esta ejecutando y nos muestra el numero de puerto que esta ocupando que es el **27017**.
 
 Y el contenido de la carpeta con el nombre `sharedData` (esta carpeta es del contenedor) es compartida con la carpeta con el nombre `dataFromMongo` (esta carpeta esta en la direccion origen de Linux).
 
@@ -279,7 +279,7 @@ Luego de esto si listamos los contenedores con:
 >$ docker ps -a
 >```
 
-Y veremos que ya tenemos creado el contenedor `tscNodejs` y tambien se puede ver que el contenedor `tscNodejs` ya se esta ejecutando y nos muestra el numero de puerto que esta ocupando este contenedor creado que es el **22140** que es asi como se configuró en al archivo `docker-compose`.
+Y veremos que ya tenemos creado el contenedor `tscNodejs` y tambien se puede ver que el contenedor `tscNodejs` ya se esta ejecutando y nos muestra el numero de puerto que esta ocupando que es el **22140** que es asi como se configuró en al archivo `docker-compose`.
 
 Y el contenido de la carpeta con el nombre `sharedData` (esta carpeta es del contenedor) es compartida con la carpeta con el nombre `filesFromTypeScript` (esta carpeta esta en la direccion origen de Linux).
 
