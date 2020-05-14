@@ -29,5 +29,11 @@ Creacion de una base de datos en mongodb en el contenedor creado, tambien creaci
 
 Averiguar todo lo que puedan sobre: Protocolos HTTP, cual es la diferencia entre un URI y un URL y cuales son los mensajes de respuesta HTTP.<a href="https://github.com/cristianfchq/EjerciciosMeanStack/tree/master/Tarea%206"> ver Tarea 6 :</a>
 
+### 📝 <a href="https://github.com/cristianfchq/EjerciciosMeanStack/tree/master/tarea7">Tarea 7 : API </a>
 
+Averiguar todo lo que puedan sobre: Protocolos HTTP, cual es la diferencia entre un URI y un URL y cuales son los mensajes de respuesta HTTP.<a href="https://github.com/cristianfchq/EjerciciosMeanStack/tree/master/tarea7"> ver Tarea 6 :</a>
+
+### 📝 <a href="https://github.com/cristianfchq/EjerciciosMeanStack/tree/master/tarea7">Tarea 8 : API </a>
+
+Averiguar todo lo que puedan sobre: Protocolos HTTP, cual es la diferencia entre un URI y un URL y cuales son los mensajes de respuesta HTTP.<a href="https://github.com/cristianfchq/EjerciciosMeanStack/tree/master/tarea7"> ver Tarea 6 :</a>
 
