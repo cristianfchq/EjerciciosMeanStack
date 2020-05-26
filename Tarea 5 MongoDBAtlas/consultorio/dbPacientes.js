@@ -83,13 +83,11 @@ db.pacientes.insert([
         estadoCivil: 'soltero',
         sexo: 'M',
         ocupacion: 'abogado',
-        direccion: [
-            {
-                zona: 'los rosales',
-                calle: 'Colon',
-                numero: 620,
-            }
-        ],
+        direccion: {
+            zona: 'los rosales',
+            calle: 'Colon',
+            numero: 620,
+        },
         antecedenteFamiliares: 'diabetes',
     },
     {
@@ -102,13 +100,11 @@ db.pacientes.insert([
         estadoCivil: 'soltero',
         sexo: 'F',
         ocupacion: 'estudiante',
-        direccion: [
-            {
-                zona: 'la merced',
-                calle: 'baptista',
-                numero: 10,
-            }
-        ],
+        direccion: {
+            zona: 'la merced',
+            calle: 'baptista',
+            numero: 10,
+        },
         antecedenteFamiliares: 'tubercolosis',
     },
     {
@@ -121,13 +117,11 @@ db.pacientes.insert([
         estadoCivil: 'soltero',
         sexo: 'M',
         ocupacion: 'estudiante',
-        direccion: [
-            {
-                zona: 'villa fatima',
-                calle: '10',
-                numero: 6,
-            }
-        ],
+        direccion: {
+            zona: 'villa fatima',
+            calle: '10',
+            numero: 6,
+        },
         antecedenteFamiliares: 'alergias',
     },
     {
@@ -140,13 +134,11 @@ db.pacientes.insert([
         estadoCivil: 'casado',
         sexo: 'M',
         ocupacion: 'universitario',
-        direccion: [
-            {
-                zona: 'ferrobiario',
-                calle: '25',
-                numero: 20,
-            }
-        ],
+        direccion: {
+            zona: 'ferrobiario',
+            calle: '25',
+            numero: 20,
+        },
         antecedenteFamiliares: 'ninguna',
     },
     {
@@ -159,13 +151,11 @@ db.pacientes.insert([
         estadoCivil: 'viuda',
         sexo: 'F',
         ocupacion: 'abogado',
-        direccion: [
-            {
-                zona: 'chuquiaguillo',
-                calle: 'murillo',
-                numero: 650,
-            }
-        ],
+        direccion: {
+            zona: 'chuquiaguillo',
+            calle: 'murillo',
+            numero: 650,
+        },
         antecedenteFamiliares: 'cardiopatias',
     },
     {
@@ -178,13 +168,11 @@ db.pacientes.insert([
         estadoCivil: 'casado',
         sexo: 'M',
         ocupacion: 'ingeniero',
-        direccion: [
-            {
-                zona: 'obrajes',
-                calle: '20',
-                numero: 32,
-            }
-        ],
+        direccion: {
+            zona: 'obrajes',
+            calle: '20',
+            numero: 32,
+        },
         antecedenteFamiliares: 'Tuberculosis',
     },
     {
@@ -197,13 +185,11 @@ db.pacientes.insert([
         estadoCivil: 'soltero',
         sexo: 'F',
         ocupacion: 'estudiante',
-        direccion: [
-            {
-                zona: 'calacoto',
-                calle: '15',
-                numero: 10,
-            }
-        ],
+        direccion: {
+            zona: 'calacoto',
+            calle: '15',
+            numero: 10,
+        },
         antecedenteFamiliares: 'tubercolosis',
     },
     {
@@ -216,13 +202,11 @@ db.pacientes.insert([
         estadoCivil: 'soltero',
         sexo: 'M',
         ocupacion: 'estudiante',
-        direccion: [
-            {
-                zona: 'villa fatima',
-                calle: '30',
-                numero: 60,
-            }
-        ],
+        direccion: {
+            zona: 'villa fatima',
+            calle: '30',
+            numero: 60,
+        },
         antecedenteFamiliares: 'ninguna',
     },
     {
@@ -235,13 +219,11 @@ db.pacientes.insert([
         estadoCivil: 'casado',
         sexo: 'M',
         ocupacion: 'trabajador publico',
-        direccion: [
-            {
-                zona: 'cota cota',
-                calle: '30',
-                numero: 255,
-            }
-        ],
+        direccion: {
+            zona: 'cota cota',
+            calle: '30',
+            numero: 255,
+        },
         antecedenteFamiliares: 'ninguna',
     },
     {
@@ -254,13 +236,11 @@ db.pacientes.insert([
         estadoCivil: 'casado',
         sexo: 'F',
         ocupacion: 'abogado',
-        direccion: [
-            {
-                zona: 'centro',
-                calle: 'mexico',
-                numero: 180,
-            }
-        ],
+        direccion: {
+            zona: 'centro',
+            calle: 'mexico',
+            numero: 180,
+        },
         antecedenteFamiliares: 'cardiopatias',
     }
 ])
@@ -268,7 +248,7 @@ db.pacientes.insert([
 db.consulta.insert([
     {
         _id: "consulta1",
-        codPaciente:"jm6578520",
+        codPaciente: "jm6578520",
         tratamiento: "Operatoria Dental",
         deuda: 2700,
         detalles: [
@@ -294,7 +274,7 @@ db.consulta.insert([
     },
     {
         _id: "consulta2",
-        codPaciente:"fz24581202",
+        codPaciente: "fz24581202",
         tratamiento: "Ortodoncia",
         deuda: 4200,
         detalles: [
@@ -320,7 +300,7 @@ db.consulta.insert([
     },
     {
         _id: "consulta3",
-        codPaciente:"ta65324175",
+        codPaciente: "ta65324175",
         tratamiento: "Odontopeditria",
         deuda: 1500,
         detalles: [
@@ -354,7 +334,7 @@ db.consulta.insert([
     },
     {
         _id: "consulta4",
-        codPaciente:"fz84575201",
+        codPaciente: "fz84575201",
         tratamiento: "Periodoncia",
         deuda: 3400,
         detalles: [
@@ -380,7 +360,7 @@ db.consulta.insert([
     },
     {
         _id: "consulta5",
-        codPaciente:"mc9658350",
+        codPaciente: "mc9658350",
         tratamiento: "Patologia Bucal",
         deuda: 1000,
         detalles: [
@@ -406,7 +386,7 @@ db.consulta.insert([
     },
     {
         _id: "consulta6",
-        codPaciente:"lp12547805",
+        codPaciente: "lp12547805",
         tratamiento: "Cirugia Bucal",
         deuda: 2200,
         detalles: [
@@ -432,7 +412,7 @@ db.consulta.insert([
     },
     {
         _id: "consulta7",
-        codPaciente:"vp24536701",
+        codPaciente: "vp24536701",
         tratamiento: "Ortodoncia",
         deuda: 4200,
         detalles: [
@@ -458,7 +438,7 @@ db.consulta.insert([
     },
     {
         _id: "consulta8",
-        codPaciente:"nl14785205",
+        codPaciente: "nl14785205",
         tratamiento: "OdontoPediatria",
         deuda: 1400,
         detalles: [
@@ -492,7 +472,7 @@ db.consulta.insert([
     },
     {
         _id: "consulta9",
-        codPaciente:"ch6754102",
+        codPaciente: "ch6754102",
         tratamiento: "Protesis Fija",
         deuda: 3200,
         detalles: [
@@ -518,7 +498,7 @@ db.consulta.insert([
     },
     {
         _id: "consulta10",
-        codPaciente:"sl6951357",
+        codPaciente: "sl6951357",
         tratamiento: "Integral Adultos",
         deuda: 1000,
         detalles: [

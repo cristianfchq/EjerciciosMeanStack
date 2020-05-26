@@ -22,8 +22,8 @@ mongoose.connect(_database, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-.then(() => console.log('Connected to MongoDB ...'))
-.catch(err => console.error('Could not connect to MongoDB:‌', err));
+    .then(() => console.log('Connected to MongoDB ...'))
+    .catch(err => console.error('Could not connect to MongoDB:‌', err));
 
 // const Pacientes = mongoose.model('Paciente', { nombre: String });
 
@@ -42,13 +42,11 @@ const pacienteSchema = new Paciente(
         estadoCivil: String,
         sexo: String,
         ocupacion: String,
-        direccion: [
-            {
-                zona: String,
-                calle: String,
-                numero: Number,
-            }
-        ],
+        direccion: {
+            zona: String,
+            calle: String,
+            numero: Number,
+        },
         antecedenteFamiliares: String,
     },
     {
@@ -66,10 +64,11 @@ app.get('/', function (req, res) {
 
 // TODO: Lista todos los pacientes
 
-app.get('/pacientes', function(req, res){
+app.get('/pacientes', function (req, res) {
 
-    pacienteModel.find({},(err, pacientes) => {
-        if (err){
+    // pacienteModel.find({},(err, pacientes) => {
+    pacienteModel.find({}, ['nombre', 'apellido', 'edad', 'direccion.zona', 'direccion'],(err, pacientes) => {
+        if (err) {
             return res.status(500).json({
                 ok: false,
                 message: 'Error en la peticion a la base de datos',
@@ -87,9 +86,9 @@ app.get('/pacientes', function(req, res){
 
 // TODO: Insertar Paciente
 
-app.post('/pacientes', (req, res)=>{
+app.post('/pacientes', (req, res) => {
     const dataRecibida = req.body;
-    if (!dataRecibida){
+    if (!dataRecibida) {
         return res.status(404).json({
             ok: false,
             message: 'error al recibir los datos'
@@ -105,17 +104,15 @@ app.post('/pacientes', (req, res)=>{
         estadoCivil: dataRecibida.estadoCivil,
         sexo: dataRecibida.sexo,
         ocupacion: dataRecibida.ocupacion,
-        direccion: [
-            {
-                zona: dataRecibida.zona,
-                calle: dataRecibida.calle,
-                numero: parseInt(dataRecibida.numero, 10),
-            }
-        ],
+        direccion: {
+            zona: dataRecibida.zona,
+            calle: dataRecibida.calle,
+            numero: parseInt(dataRecibida.numero, 10),
+        },
         antecedenteFamiliares: dataRecibida.antecedenteFamiliares,
     })
     paciente.save((err, newPaciente) => {
-        if (err){
+        if (err) {
             return res.status(500).json({
                 ok: false,
                 message: 'Error al crear paciente',
@@ -137,45 +134,45 @@ app.post('/pacientes', (req, res)=>{
 
 // TODO: Actualizar 
 
-app.put('/pacientes/:id', (req, res)=>{
+app.put('/pacientes/:id', (req, res) => {
     const id = req.params.id;
     const dataRecibida = req.body;
-    if (!dataRecibida || !id){
-        return res.status(404).json({
+    if (!dataRecibida || !id) {
+        return res.status(400).json({
             ok: false,
             message: 'error al recibir los datos o el id'
         })
     }
     pacienteModel.findById(id, (err, paciente) => {
-        if (err){
+        if (err) {
             return res.status(500).json({
                 ok: false,
                 message: 'Error al encontrar cliente',
                 erros: err
             })
         }
-        if (!paciente){
+        if (!paciente) {
             return res.status(404).json({
                 ok: false,
                 message: 'Error al encontrar cliente',
                 erros: err
             })
         }
-        paciente.ci                     = dataRecibida.ci                       ? dataRecibida.ci                       : paciente.ci                     ;
-        paciente.nombre                 = dataRecibida.nombre                   ? dataRecibida.nombre                   : paciente.nombre                 ;
-        paciente.apellido               = dataRecibida.apellido                 ? dataRecibida.apellido                 : paciente.apellido               ;
-        paciente.edad                   = parseInt(dataRecibida.edad, 10)       ? parseInt(dataRecibida.edad, 10)       : paciente.edad                   ;
-        paciente.telefono               = parseInt(dataRecibida.telefono, 10)   ? parseInt(dataRecibida.telefono, 10)   : paciente.telefono               ;
-        paciente.estadoCivil            = dataRecibida.estadoCivil              ? dataRecibida.estadoCivil              : paciente.estadoCivil            ;
-        paciente.sexo                   = dataRecibida.sexo                     ? dataRecibida.sexo                     : paciente.sexo                   ;
-        paciente.ocupacion              = dataRecibida.ocupacion                ? dataRecibida.ocupacion                : paciente.ocupacion              ;
-        paciente.direccion.zona         = dataRecibida.zona                     ? dataRecibida.zona                     : paciente.direccion.zona         ;
-        paciente.direccion.calle        = dataRecibida.calle                    ? dataRecibida.calle                    : paciente.direccion.calle        ;
-        paciente.direccion.numero       = parseInt(dataRecibida.numero, 10)     ? parseInt(dataRecibida.numero, 10)     : paciente.direccion.numero       ;
-        paciente.antecedenteFamiliares  = dataRecibida.antecedenteFamiliares    ? dataRecibida.antecedenteFamiliares    : paciente.antecedenteFamiliares  ;
-        
+        paciente.ci = dataRecibida.ci ? dataRecibida.ci : paciente.ci;
+        paciente.nombre = dataRecibida.nombre ? dataRecibida.nombre : paciente.nombre;
+        paciente.apellido = dataRecibida.apellido ? dataRecibida.apellido : paciente.apellido;
+        paciente.edad = parseInt(dataRecibida.edad, 10) ? parseInt(dataRecibida.edad, 10) : paciente.edad;
+        paciente.telefono = parseInt(dataRecibida.telefono, 10) ? parseInt(dataRecibida.telefono, 10) : paciente.telefono;
+        paciente.estadoCivil = dataRecibida.estadoCivil ? dataRecibida.estadoCivil : paciente.estadoCivil;
+        paciente.sexo = dataRecibida.sexo ? dataRecibida.sexo : paciente.sexo;
+        paciente.ocupacion = dataRecibida.ocupacion ? dataRecibida.ocupacion : paciente.ocupacion;
+        paciente.direccion.zona = dataRecibida.zona ? dataRecibida.zona : paciente.direccion.zona;
+        paciente.direccion.calle = dataRecibida.calle ? dataRecibida.calle : paciente.direccion.calle;
+        paciente.direccion.numero = parseInt(dataRecibida.numero, 10) ? parseInt(dataRecibida.numero, 10) : paciente.direccion.numero;
+        paciente.antecedenteFamiliares = dataRecibida.antecedenteFamiliares ? dataRecibida.antecedenteFamiliares : paciente.antecedenteFamiliares;
+
         paciente.save((err, pacienteUpdate) => {
-            if (err){
+            if (err) {
                 return res.status(500).json({
                     ok: false,
                     message: 'Error al actulizar el paciente',
@@ -197,10 +194,49 @@ app.put('/pacientes/:id', (req, res)=>{
     // })
 })
 
-app.listen(3001)
+// TODO: eliminar
 
 
-console.log('El servidor se esta ejecutando en el puerto 3001');
+app.delete('/pacientes/:id', (req, res) => {
+    const id = req.params.id;
+    if (!id) {
+        return res.status(400).json({
+            ok: false,
+            message: 'error al recibir el id'
+        })
+    }
+    pacienteModel.findByIdAndDelete(id, (err, pacienteDeleted) => {
+        if (err) {
+            return res.status(500).json({
+                ok: false,
+                message: 'error al buscar encontrar cliente',
+                erros: err
+            })
+        }
+        if (!pacienteDeleted) {
+            return res.status(404).json({
+                ok: false,
+                message: 'cliente no encontrado',
+                erros: err
+            })
+        }
+        res.status(200).json({
+            ok: true,
+            message: 'cliente eliminado con exito',
+            pacienteDeleted: pacienteDeleted,
+        })
+    })
+    // res.status(200).json({
+    //     ok: true,
+    //     message: 'datos recibidos con exito',
+    //     dataRecibida: dataRecibida
+    // })
+})
+
+app.listen(3000)
+
+
+console.log('El servidor se esta ejecutando en el puerto 3000');
 
 //! //////////////////////////////////////////////////////////////////////////////////////////
 
