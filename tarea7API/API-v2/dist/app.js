@@ -11,17 +11,17 @@ const app = express_1.default();
 //configuraciones
 app.set('port', process.env.PORT || 3000);
 //middlewares
-// app.use(express.urlencoded({extended: true}));
-// app.use(express.json());
-app.use(express_1.default.urlencoded());
+app.use(express_1.default.urlencoded({ extended: true }));
 app.use(express_1.default.json());
 //rutas
 app.get('/', (req, res) => {
     res.send(`Puedes realizar peticiones en: ${req.headers.host}/<URI_METHODS>`);
 });
+// 500 cuando a habido un error al buscar un objeto
+// 404 cuando no encuentra el objeto
 //listar pacientes
 app.get('/pacientes', (req, res) => {
-    pacientes_models_1.default.find({}, "nombre apellido telefono", (err, pacientes) => {
+    pacientes_models_1.default.find({}, "nombre apellido ci telefono", (err, pacientes) => {
         if (err) {
             return res.status(500).json({
                 ok: false,
@@ -49,18 +49,52 @@ app.get('/pacientes', (req, res) => {
 // listar un paciente por el id
 app.get('/pacientes/:id', (req, res) => {
     const id = req.params.id;
-    pacientes_models_1.default.findById(id, (err, pacientee) => {
+    pacientes_models_1.default.findById(id, (err, paciente) => {
+        console.log(err);
         if (err) {
             return res.status(500).json({
                 ok: false,
-                message: 'error al buscar pacientes',
+                message: 'error al buscar paciente',
                 errors: err
+            });
+        }
+        if (paciente === null) {
+            return res.status(404).json({
+                ok: false,
+                message: 'paciente no encontrado',
+                errors: 'id invalido'
             });
         }
         res.status(200).json({
             ok: true,
             message: 'paciente',
-            paciente: pacientee
+            paciente: paciente
+        });
+    });
+});
+// listar un paciente por el ci
+app.get('/paciente/:ci', (req, res) => {
+    const ci = req.params.ci;
+    pacientes_models_1.default.findOne({ 'ci': ci }, (err, paciente) => {
+        // console.log(err);
+        if (err) {
+            return res.status(500).json({
+                ok: false,
+                message: 'error al buscar paciente',
+                errors: err
+            });
+        }
+        if (paciente === null) {
+            return res.status(404).json({
+                ok: false,
+                message: 'paciente no encontrado',
+                errors: 'id invalido'
+            });
+        }
+        res.status(200).json({
+            ok: true,
+            message: 'paciente',
+            paciente: paciente
         });
     });
 });
@@ -107,6 +141,13 @@ app.put('/pacientes/:id', (req, res) => {
                 errors: err,
             });
         }
+        if (pacienteParaActualizar === null) {
+            return res.status(404).json({
+                ok: false,
+                message: 'paciente no encontrado',
+                errors: 'id invalido'
+            });
+        }
         const nuevoPaciente = Object.assign(Object.assign({}, pacienteParaActualizar._doc), pacienteRecivido);
         pacientes_models_1.default.findByIdAndUpdate(id, nuevoPaciente, (err, pacienteActualizado) => {
             if (err) {
@@ -137,10 +178,10 @@ app.delete('/pacientes/:id', (req, res) => {
             });
         }
         if (pacienteEliminado === null) {
-            return res.status(500).json({
+            return res.status(404).json({
                 ok: false,
                 message: 'error al eliminar por paciente no encontrado',
-                errors: err,
+                errors: 'id invalido',
             });
         }
         res.status(200).json({
