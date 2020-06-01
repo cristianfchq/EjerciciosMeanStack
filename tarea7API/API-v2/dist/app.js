@@ -20,60 +20,7 @@ app.get('/', (req, res) => {
 });
 // 500 cuando a habido un error al buscar un objeto
 // 404 cuando no encuentra el objeto
-//listar pacientes
 app.use('/pacientes', pacientes_routes_1.default);
-// listar un paciente por el id
-app.get('/pacientes/:id', (req, res) => {
-    const id = req.params.id;
-    pacientes_models_1.default.findById(id, (err, paciente) => {
-        console.log(err);
-        if (err) {
-            return res.status(500).json({
-                ok: false,
-                message: 'error al buscar paciente',
-                errors: err
-            });
-        }
-        if (paciente === null) {
-            return res.status(404).json({
-                ok: false,
-                message: 'paciente no encontrado',
-                errors: 'id invalido'
-            });
-        }
-        res.status(200).json({
-            ok: true,
-            message: 'paciente',
-            paciente: paciente
-        });
-    });
-});
-// listar un paciente por el ci
-app.get('/paciente/:ci', (req, res) => {
-    const ci = req.params.ci;
-    pacientes_models_1.default.findOne({ 'ci': ci }, (err, paciente) => {
-        // console.log(err);
-        if (err) {
-            return res.status(500).json({
-                ok: false,
-                message: 'error al buscar paciente',
-                errors: err
-            });
-        }
-        if (paciente === null) {
-            return res.status(404).json({
-                ok: false,
-                message: 'paciente no encontrado',
-                errors: 'id invalido'
-            });
-        }
-        res.status(200).json({
-            ok: true,
-            message: 'paciente',
-            paciente: paciente
-        });
-    });
-});
 //ingresar nuevos pacientes
 app.post('/pacientes', (req, res) => {
     const pacienteRecivido = req.body;

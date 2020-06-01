@@ -4,6 +4,7 @@ import express, {Request, Response} from 'express';
 import Paciente from './models/pacientes.models';
 import pacienteRouter from './routes/pacientes.routes';
 
+
 //inicializacion
 const app = express();
 
@@ -22,72 +23,11 @@ app.get('/', (req: Request, res: Response)=>{
 // 500 cuando a habido un error al buscar un objeto
 // 404 cuando no encuentra el objeto
 
-//listar pacientes
-
 app.use('/pacientes', pacienteRouter);
 
 
-// listar un paciente por el id
 
-app.get('/pacientes/:id', (req: Request, res: Response) => {
-    const id = req.params.id;
-    Paciente.findById(id, (err, paciente) => {
 
-        console.log(err);
-        
-        if (err){
-            return res.status(500).json({
-                ok: false,
-                message: 'error al buscar paciente',
-                errors: err
-            });
-        }
-        if (paciente === null){
-            return res.status(404).json({
-                ok: false,
-                message: 'paciente no encontrado',
-                errors: 'id invalido'
-            });
-        }
-        res.status(200).json({
-            ok: true,
-            message: 'paciente',
-            paciente: paciente
-        });
-
-    });
-});
-
-// listar un paciente por el ci
-
-app.get('/paciente/:ci', (req: Request, res: Response) => {
-    const ci = req.params.ci;
-    Paciente.findOne({'ci': ci}, (err, paciente) => {
-
-        // console.log(err);
-        
-        if (err){
-            return res.status(500).json({
-                ok: false,
-                message: 'error al buscar paciente',
-                errors: err
-            });
-        }
-        if (paciente === null){
-            return res.status(404).json({
-                ok: false,
-                message: 'paciente no encontrado',
-                errors: 'id invalido'
-            });
-        }
-        res.status(200).json({
-            ok: true,
-            message: 'paciente',
-            paciente: paciente
-        });
-
-    });
-});
 
 //ingresar nuevos pacientes
 
