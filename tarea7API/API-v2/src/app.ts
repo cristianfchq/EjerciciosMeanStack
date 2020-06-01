@@ -26,6 +26,7 @@ app.get('/', (req: Request, res: Response)=>{
 
 app.use('/pacientes', pacienteRouter);
 
+
 // listar un paciente por el id
 
 app.get('/pacientes/:id', (req: Request, res: Response) => {
