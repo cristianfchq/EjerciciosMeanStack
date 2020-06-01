@@ -2,6 +2,7 @@
 //importaciones
 import express, {Request, Response} from 'express';
 import Paciente from './models/pacientes.models';
+import pacienteRouter from './routes/pacientes.routes';
 
 //inicializacion
 const app = express();
@@ -23,38 +24,7 @@ app.get('/', (req: Request, res: Response)=>{
 
 //listar pacientes
 
-app.get('/pacientes', (req: Request, res: Response)=>{
-    Paciente.find({}, "nombre apellido ci telefono", (err, pacientes) => {
-        if (err){
-            return res.status(500).json({
-                ok: false,
-                message: 'error al buscar pacientes',
-                errors: err,
-            });
-        }
-
-        Paciente.countDocuments((err, total) => {
-            if (err){
-                return res.status(500).json({
-                    ok: false,
-                    message: 'error al contar pacientes',
-                    errors: err,
-                });
-            }
-
-            res.status(200).json({
-                ok: true,
-                message: 'lista de pacientes',
-                pacientes: pacientes,
-                total_pacientes: total,
-            });
-
-
-        });
-
-        
-    });
-});
+app.use('/pacientes', pacienteRouter);
 
 // listar un paciente por el id
 

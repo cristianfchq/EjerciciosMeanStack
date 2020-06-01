@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //importaciones
 const express_1 = __importDefault(require("express"));
 const pacientes_models_1 = __importDefault(require("./models/pacientes.models"));
+const pacientes_routes_1 = __importDefault(require("./routes/pacientes.routes"));
 //inicializacion
 const app = express_1.default();
 //configuraciones
@@ -20,32 +21,7 @@ app.get('/', (req, res) => {
 // 500 cuando a habido un error al buscar un objeto
 // 404 cuando no encuentra el objeto
 //listar pacientes
-app.get('/pacientes', (req, res) => {
-    pacientes_models_1.default.find({}, "nombre apellido ci telefono", (err, pacientes) => {
-        if (err) {
-            return res.status(500).json({
-                ok: false,
-                message: 'error al buscar pacientes',
-                errors: err,
-            });
-        }
-        pacientes_models_1.default.countDocuments((err, total) => {
-            if (err) {
-                return res.status(500).json({
-                    ok: false,
-                    message: 'error al contar pacientes',
-                    errors: err,
-                });
-            }
-            res.status(200).json({
-                ok: true,
-                message: 'lista de pacientes',
-                pacientes: pacientes,
-                total_pacientes: total,
-            });
-        });
-    });
-});
+app.use('/pacientes', pacientes_routes_1.default);
 // listar un paciente por el id
 app.get('/pacientes/:id', (req, res) => {
     const id = req.params.id;
